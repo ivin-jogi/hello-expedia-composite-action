@@ -1,3 +1,4 @@
+name: CompositeActionWorkflow
 on: [push]
 
 jobs:
@@ -5,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - id: foo
-        uses: actions/composite-action-demo@v1
+        uses: ./
         with:
-          who-to-greet: 'Ivin Jogi'
+          who-to-greet: 'Mona the Octocat with Expedia'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
